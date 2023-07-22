@@ -3,9 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 // Route to API
-router.get('/', (req, res) => {
-    console.log('Router access');
-});
-
+router.use('/api', require('./api'));
 
 module.exports = router;
