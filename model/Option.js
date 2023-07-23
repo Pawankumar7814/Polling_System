@@ -14,4 +14,5 @@ const optionSchema = new Schema({
 
 const Option = mongoose.model('options', optionSchema);
 
+// Exorting the model of Option
 module.exports = Option;
