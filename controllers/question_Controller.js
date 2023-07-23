@@ -36,18 +36,15 @@ module.exports.viewQuestion = async function(req, res) {
 }
 
 // To delete the Question
-
-
 module.exports.deleteQuestion = async function(req, res) {
     try {
-        res.send(req.params.id);
         // Find the question using id
         const question = await Question.findById(req.params.id);
         console.log(question);
         // If question exists
         if (question) {
-            await Question.deleteOne({ _id: req.params.id }); // Correct the usage of deleteOne()
-            await Option.deleteMany({ question: req.params.id }); // Correct the usage of deleteMany()
+            await Question.deleteOne({ _id: req.params.id });
+            await Option.deleteMany({ question: req.params.id });
             res.send("Question has been deleted successfully");
             // console.log("Question has been deleted successfully.");
         } else {
