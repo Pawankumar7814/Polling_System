@@ -13,6 +13,7 @@ module.exports.createQuestion = async function(req, res) {
     } catch (err) {
         res.send(`Error! occur while creating a question ${err}`);
         res.status(500).send("Internal Server Error");
+        return;
     }
 }
 
@@ -29,6 +30,8 @@ module.exports.viewQuestion = async function(req, res) {
         }
     } catch (err) {
         console.log("Error while finding the question ", err);
+        res.status(500).send("Error while viewing the question");
+        return;
     }
 }
 
@@ -54,5 +57,6 @@ module.exports.deleteQuestion = async function(req, res) {
     } catch (error) {
         console.log("Error while deleting the question", error);
         res.status(500).send("Error while deleting the question");
+        return;
     }
 }

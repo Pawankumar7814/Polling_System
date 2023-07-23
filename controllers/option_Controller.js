@@ -26,8 +26,9 @@ module.exports.createOption = async function(req, res) {
             res.send('Question does not exist');
         }
     } catch (err) {
-        return console.error(err);
-        return res.status(500).send('An error occurred');
+        console.error(err);
+        res.status(500).send('An error occurred');
+        return;
     }
 }
 
@@ -46,8 +47,9 @@ module.exports.addVote = async function(req, res) {
             return res.send('Option does not exist ');
         }
     } catch (err) {
-        return console.log("Error while voting ", err);
-        return res.status(500).send('An error occurred');
+        console.log("Error while voting ", err);
+        res.status(500).send('An error occurred');
+        return
     }
 }
 
@@ -72,7 +74,8 @@ module.exports.deleteOption = async function(req, res) {
             throw new Error(`No such option with id ${req.params.id}`);
         }
     } catch (err) {
-        return console.log(err);
-        return res.status(500).send('An error occurred');
+        console.log(err);
+        res.status(500).send('An error occurred');
+        return;
     }
 }
