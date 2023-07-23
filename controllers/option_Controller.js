@@ -50,3 +50,25 @@ module.exports.addVote = async function(req, res) {
         res.status(500).send('An error occurred');
     }
 }
+
+// To delete an option
+module.exports.deleteOption = async function(req, res) {
+    try {
+        const option = await Option.findById(req.params.id);
+        if (option) {
+            const question_ID = option.question;
+            const question = await Question.findByIdAndUpdate(question_ID, {
+                $pull: {
+                    options: req.params.id
+                }
+            });
+            await Option.findByIdAndDelete(req.params.id);
+            console.log("Option deleted Successfully");
+            res.send("Option deleted Successfully");
+        } else {
+            throw new Error(`No such option with id ${req.params.id}`);
+        }
+    } catch (err) {
+        console.log()
+    }
+}
