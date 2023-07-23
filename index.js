@@ -9,7 +9,7 @@ const port = 4200; // Setting up the port number
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-app.use('/', require('./routes')); // Route to routing pages (By degfault it will fgo tp the index file)
+app.use('/', require('./routes')); // Route to routing pages (By default it will go tp the index file)
 
 // Starting the server
 app.listen(port, (err) => {

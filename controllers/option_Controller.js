@@ -12,7 +12,7 @@ module.exports.createOption = async function(req, res) {
         });
         // Add the 'add_vote' property to the created option
         const updateOpt = await Option.findByIdAndUpdate(opt._id, {
-            add_vote: `http://localhost:3000/api/v1/options/${opt._id}/addVote`,
+            addVote: `http://localhost:3000/api/v1/options/${opt._id}/addVote`,
         });
         updateOpt.save();
         // Now searching the question so that we can append the option to the 'options' array
