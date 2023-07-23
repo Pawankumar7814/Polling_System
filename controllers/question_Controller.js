@@ -1,5 +1,5 @@
 const Question = require('../model/Question');
-require('../model/Option');
+const Option = require('../model/Option');
 // const { json } = require('body-parser');
 
 // To create a new question
